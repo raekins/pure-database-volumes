@@ -65,11 +65,14 @@ We can the push into the registry with `docker push registry` e.g
 
 `$ docker push registry:32000/database-volumes`
 
-# Create Namepspace
+# Create Namespace
 `$ kubectl create namespace pure-namespace`
 
 # Create configMap
 `$ kubectl create configmap cm --from-env-file=database_volumes.properties -n pure-namespace`
 
 # Create StatefulSet
-`kubectl apply -f database_volumes.yaml`
+`$ kubectl apply -f database_volumes.yaml`
+
+# Connect to running pod
+`$ kubectl exec -it database-volumes-0  -n pure-namespace -- /bin/bash`
