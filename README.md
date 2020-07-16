@@ -53,3 +53,23 @@ Options:
   -u USER, --user=USER  Pure user name
   -v, --verbose         Verbose [default: False]
 ```
+# Connect to running container
+`$ docker exec -it database-volumes "/bin/bash"`
+
+# For use with Kubernetes
+For use with Kubernetes we first need to tag our Docker image using `docker tag <image> <registry>` e.g.
+
+`$ docker tag 7f85efa3be09 registry:32000/database-volumes`
+
+We can the push into the registry with `docker push registry` e.g
+
+`$ docker push registry:32000/database-volumes`
+
+# Create Namepspace
+`$ kubectl create namespace pure-namespace`
+
+# Create configMap
+`$ kubectl create configmap cm --from-env-file=database_volumes.properties -n pure-namespace`
+
+# Create StatefulSet
+`kubectl apply -f database_volumes.yaml`
