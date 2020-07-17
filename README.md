@@ -56,6 +56,9 @@ Options:
 # Connect to running container
 `$ docker exec -it database-volumes "/bin/bash"`
 
+# Check running container logs
+`$ docker logs database-volumes`
+
 # For use with Kubernetes
 For use with Kubernetes we first need to tag our Docker image using `docker tag <image> <registry>` e.g.
 
