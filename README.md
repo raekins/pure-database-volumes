@@ -75,7 +75,7 @@ We can the push into the registry with `docker push registry` e.g
 `$ kubectl create configmap cm --from-env-file=database_volumes.properties -n pure-namespace`
 
 # Create StatefulSet
-`$ kubectl apply -f database_volumes.yaml`
+`$ kubectl apply -f database-volumes.yaml`
 
 # Connect to running pod
 `$ kubectl exec -it database-volumes-0  -n pure-namespace -- /bin/bash`
